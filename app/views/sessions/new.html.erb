@@ -1,7 +1,11 @@
+<% if !alert.nil? %>
+	<%= alert %> <br><br>
+<% end %>
 <%= form_for @user, :url => url_for(:action => "create") do |f| %>
-	  <%= f.label 'Username:' %><br>
-	  <%= f.text_field :username %><br><br>
-	  <%= f.label 'Password:' %><br>
-	  <%= f.password_field :password %><br><br>
-	  <%= f.submit "Sign In" %>
-	<% end %>
+  <%= f.label 'Username:' %><br>
+  <%= f.text_field :username %><br><br>
+  <%= f.label 'Password:' %><br>
+  <%= f.password_field :password %><br><br>
+  <%= f.submit "Sign In" %>
+<% end %><br>
+<%= link_to "Back",root_path %>
