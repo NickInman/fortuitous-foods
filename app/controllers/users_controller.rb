@@ -24,14 +24,13 @@ class UsersController < ApplicationController
     elsif @user.valid?
       @user.save
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to users_path
     else
       redirect_to new_user_path, alert: "Signup info invalid or incomplete."
     end
   end
 
   def show
-
     if valid_user?
       @user = User.find(params[:id])
     else
@@ -42,7 +41,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :first_name, :last_name, :zip, :password)
+    params.require(:user).permit(:username, :email, :first_name, :last_name, :zip, :password, :password_confirmation)
   end
 
   def valid_user?

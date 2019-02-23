@@ -1,0 +1,9 @@
+<% if !alert.nil? %>
+  <% if alert.kind_of?(Array) %>
+    <% alert.each do |warn| %>
+	     <strong><%= warn %></strong><br>
+       <% end %><br>
+    <% else %>
+      <%= alert %>
+    <% end  %>
+<% end %>
