@@ -10,8 +10,7 @@ class SessionsController < ApplicationController
 	    session[:user_id] = @user.id
 	    redirect_to user_path(@user)
 	  else
-      
-	    redirect_to login_path, alert: "Login info invalid"
+	    redirect_to login_path, alert: "Login info invalid or incomplete."
 	  end
 	end
 

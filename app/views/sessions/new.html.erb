@@ -1,5 +1,5 @@
 <% if !alert.nil? %>
-	<%= alert %> <br><br>
+	<strong><%= alert %></strong> <br><br>
 <% end %>
 <%= form_for @user, :url => url_for(:action => "create") do |f| %>
   <%= f.label 'Username:' %><br>
