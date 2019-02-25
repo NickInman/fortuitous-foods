@@ -47,4 +47,14 @@ class UsersController < ApplicationController
   def valid_user?
     params[:id] == session[:user_id].to_s
   end
+
+  def authenticate
+    authenticate_or_request_with_http_token do |token, options|
+      binding.pry
+      # Compare the tokens in a time-constant manner, to mitigate
+      # timing attacks.
+      ActiveSupport::SecurityUtils.secure_compare(token, TOKEN)
+    end
+  end
+
 end

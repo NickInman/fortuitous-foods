@@ -1,5 +1,5 @@
 <%= render partial: 'alert', locals: { alert: alert } %>
-<%= form_for @user, :url => url_for(:action => "create") do |f| %>
+<%= form_for @user, :url => url_for(:action => "create" ) do |f| %>
   <%= f.label 'Username:' %><br>
   <%= f.text_field :username %><br><br>
   <%= f.label 'Password:' %><br>
