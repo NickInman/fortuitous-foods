@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :home, only: [:index]
   resources :sessions, only: [:create]
   resources :users
+  resources :restaurants
 end
