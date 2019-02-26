@@ -20,11 +20,10 @@ class SessionsController < ApplicationController
       u.email = auth['info']['email']
       u.first_name = auth[:info][:name].split(' ').first
       u.last_name = auth[:info][:name].split(' ').last
-      u.zip = 00000
+      u.zip = 00000 #sets a default value
       u.password_digest = SecureRandom.base64  #generates a random hexadecimal for the password
     end
       session[:user_id] = @user.id
-      binding.pry
       redirect_to user_path(@user)
   end
 
