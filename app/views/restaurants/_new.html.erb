@@ -1,0 +1,7 @@
+<%= form_for restaurant do |f|%>
+ <%= f.label "Cuisine" %><br>
+ <%= f.text_field :cuisine %><br>
+ <%= f.label "Zip" %><br>
+ <%= f.text_field :zip %>
+ <%= f.submit 'Search' %>
+<% end %>

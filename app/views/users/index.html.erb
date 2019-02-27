@@ -1,6 +1,6 @@
 <h1>User Main Page</h1>
 <p>Hello <%= @user.first_name + " " + @user.last_name %></p>
-
+<%= link_to "Restaurants", restaurants_path %>
 <%= link_to "Account Info", user_path(@user) %>
 <%= link_to "Log Out", logout_path %>
 <p>Will show user info, possibly restaurants, suggestions, stats?</p>

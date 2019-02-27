@@ -15,9 +15,14 @@ ActiveRecord::Schema.define(version: 2019_02_26_012138) do
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.string "cuisine"
+    t.integer "review_count"
+    t.integer "rating"
+    t.string "price"
+    t.string "city"
+    t.string "url"
+    t.string "image_url"
+    t.integer "zip"
     t.string "rest_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -28,8 +33,6 @@ ActiveRecord::Schema.define(version: 2019_02_26_012138) do
     t.integer "zip"
     t.string "uid"
     t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end

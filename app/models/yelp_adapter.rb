@@ -1,4 +1,4 @@
-class YelpAdapter
+class YelpAdapter < ApplicationRecord
 
   def self.search(term, location="new york")
     url = "#{API_HOST}#{SEARCH_PATH}"
@@ -8,19 +8,26 @@ class YelpAdapter
       limit: SEARCH_LIMIT
     }
     response = HTTP.auth("Bearer #{ENV["YELP_API_KEY"]}").get(url, params: params)
-    response.parse["businesses"]
+    #response.parse["businesses"]
+    parse_results(response.parse["businesses"])
   end
-  #
-  # def self.business_reviews(business_id)
-  #   url = "#{API_HOST}#{BUSINESS_PATH}#{business_id}/reviews"
-  #   response = HTTP.auth("Bearer #{ENV["YELP_API_KEY"]}").get(url)
-  #   response.parse["reviews"]
-  #   binding.pry
-  # end
-  #
-  # def business(business_id)
-  #   url = "#{API_HOST}#{BUSINESS_PATH}#{business_id}"
-  #   response = HTTP.auth("Bearer #{ENV["YELP_API_KEY"]}").get(url)
-  #   response.parse
-  # end
+
+  def self.parse_results(search_results)
+    restaurant_array = []
+    search_results.each do |rest|
+      restaurant = Restaurant.new
+      restaurant.name = rest['name']
+      restaurant.cuisine = rest['categories'].first['alias']
+      restaurant.review_count = rest['review_count']
+      restaurant.rating = rest['rating']
+      restaurant.price = rest['price']
+      restaurant.city = rest['location']['city']
+      restaurant.url = rest['url']
+      restaurant.image_url = rest['image_url']
+      restaurant.zip = rest['location']['zip_code']
+      restaurant.rest_id = rest['id']
+      restaurant_array << restaurant
+    end
+binding.pry
+  end
 end
