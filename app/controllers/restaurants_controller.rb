@@ -25,7 +25,8 @@ class RestaurantsController < ApplicationController
       r.image_url = restaurant_params['image_url']
       r.zip = restaurant_params['zip']
     end
-      binding.pry
+    @user = User.find(session[:user_id])
+    @user.favorites.create(restaurant_id: @restaurant.id)
   end
 
   private
