@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :clear_data, except: [:destroy]
 
   def new
 	  @user = User.new
@@ -40,6 +41,10 @@ class SessionsController < ApplicationController
 
   def auth
    request.env['omniauth.auth']
+  end
+
+  def clear_data
+
   end
 
 end

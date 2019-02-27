@@ -28,6 +28,6 @@ class YelpAdapter < ApplicationRecord
       restaurant.rest_id = rest['id']
       restaurant_array << restaurant
     end
-binding.pry
+    restaurant_array
   end
 end

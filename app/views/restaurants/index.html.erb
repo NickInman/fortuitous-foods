@@ -1,5 +1,34 @@
 <h1>Restaurants Index</h1>
 <p>Popular near you?</p>
 <p>Favorites?</p>
-<%= link_to "Search", new_restaurant_path %>
-<%= link_to "User Home", users_path %>
+<%= link_to "Search", new_restaurant_path %><br>
+<%= link_to "User Home", users_path %><br><br>
+<% if !notice.nil? %>
+  <%= notice %><br><br>
+<% end %>
+<% if !@rests.nil? %>
+  <% @rests.each do |r| %>
+    <%= image_tag(src = r.image_url, size: "200") %>
+    <%= r.name %>
+    <%= r.cuisine %>
+    <%= r.review_count %>
+    <%= r.rating %>
+    <%= r.price %>
+    <%= r.city %>
+    <%= r.zip %>
+    <%= link_to r.name, r.url %>
+    <%= form_for(r, :action => 'create') do |f| %>
+      <%= f.hidden_field :name, value: r.name %>
+      <%= f.hidden_field :cuisine, value: r.cuisine %>
+      <%= f.hidden_field :review_count, value: r.review_count %>
+      <%= f.hidden_field :rating, value: r.rating %>
+      <%= f.hidden_field :price, value: r.price %>
+      <%= f.hidden_field :city, value: r.city %>
+      <%= f.hidden_field :zip, value: r.zip %>
+      <%= f.hidden_field :url, value: r.url %>
+      <%= f.hidden_field :image_url, value: r.image_url %>
+      <%= f.hidden_field :rest_id, value: r.rest_id %>
+      <%= f.submit 'Save to favorites' %>
+    <% end %><br><br>
+  <% end %>
+<% end %>

@@ -1,3 +1,4 @@
 class Restaurant < ApplicationRecord
-
-end 
+  has_many :favorites
+  has_many :restaurants, through: :favorites
+end
