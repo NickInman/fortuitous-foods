@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: session_params[:username])
     if @user && @user.authenticate(session_params[:password])
 	     session[:user_id] = @user.id
-	     redirect_to user_path(@user)
+	     redirect_to users_path
     else
 	     redirect_to login_path, alert: "Login info invalid or incomplete."
 	  end
@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
       u.password_digest = SecureRandom.base64  #generates a random hexadecimal for the password
     end
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to users_path
   end
 
   def destroy
