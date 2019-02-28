@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create]
   resources :users
   resources :restaurants
+  resources :favorites
 end

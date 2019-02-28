@@ -15,4 +15,7 @@
   <%= f.city %>
   <%= f.zip %>
   <%= link_to f.name, f.url %><br><br>
+  <%= form_tag favorite_path(f.id), method: "delete" do %>
+  <%= submit_tag "Delete #{f.name}" %>
+<% end %>
 <% end %>

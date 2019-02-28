@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :logged_in_user, except: [:new, :create]
   before_action :current_user, except: [:new, :create]
 
+
   def index
     @user = User.find(session[:user_id])
     @favs = @user.favorites.map do |f|
