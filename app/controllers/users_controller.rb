@@ -4,6 +4,9 @@ class UsersController < ApplicationController
 
   def index
     @user = User.find(session[:user_id])
+    @favs = @user.favorites.map do |f|
+      Restaurant.find_by(id: f.restaurant_id)
+    end
   end
 
   def new
@@ -33,6 +36,7 @@ class UsersController < ApplicationController
   def show
     if valid_user?
       @user = User.find(params[:id])
+
     else
       redirect_to user_path(session[:user_id])
     end

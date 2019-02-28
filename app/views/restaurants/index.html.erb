@@ -1,11 +1,8 @@
 <h1>Restaurants Index</h1>
 <p>Popular near you?</p>
-<p>Favorites?</p>
 <%= link_to "Search", new_restaurant_path %><br>
 <%= link_to "User Home", users_path %><br><br>
-<% if !notice.nil? %>
-  <%= notice %><br><br>
-<% end %>
+<%= render partial: 'shared/notice', locals: { notice: notice } %>
 <% if !@rests.nil? %>
   <% @rests.each do |r| %>
     <%= image_tag(src = r.image_url, size: "200") %>
@@ -31,4 +28,6 @@
       <%= f.submit 'Save to favorites' %>
     <% end %><br><br>
   <% end %>
+<% else %>
+<h2>Popular user restaurants</h2>
 <% end %>

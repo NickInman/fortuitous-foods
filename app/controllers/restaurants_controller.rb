@@ -1,6 +1,9 @@
 class RestaurantsController < ApplicationController
 
   def index
+    @restaraunts = Restaurant.all
+    # @favorites = Favorite.all
+    # @favorites.map {|f| f.restaurant_id}
   end
 
   def new
@@ -26,7 +29,12 @@ class RestaurantsController < ApplicationController
       r.zip = restaurant_params['zip']
     end
     @user = User.find(session[:user_id])
-    @user.favorites.create(restaurant_id: @restaurant.id)
+    if !!@user.favorites.find_by(restaurant_id: @restaurant.id)
+      redirect_to users_path, notice: 'Restaurant already in favorites.'
+    else
+      @user.favorites.create(restaurant_id: @restaurant.id)
+      redirect_to users_path, notice: 'Restaurant added to favorites.'
+    end
   end
 
   private
