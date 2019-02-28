@@ -5,17 +5,9 @@
 <%= link_to "Log Out", logout_path %>
 <p>Will show user info, possibly restaurants, suggestions, stats?</p>
 <%= render partial: 'shared/notice', locals: { notice: notice } %>
-<% @favs.each do |f| %>
-  <%= image_tag(src = f.image_url, size: "200") %>
-  <%= f.name %>
-  <%= f.cuisine %>
-  <%= f.review_count %>
-  <%= f.rating %>
-  <%= f.price %>
-  <%= f.city %>
-  <%= f.zip %>
-  <%= link_to f.name, f.url %><br><br>
-  <%= form_tag favorite_path(f.id), method: "delete" do %>
-  <%= submit_tag "Delete #{f.name}" %>
+<% @favs.each do |r| %>
+<%= render partial: 'shared/show', locals: { r: r } %>
+  <%= form_tag favorite_path(r.id), method: "delete" do %>
+  <%= submit_tag "Delete #{r.name}" %>
 <% end %>
 <% end %>

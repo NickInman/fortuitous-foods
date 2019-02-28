@@ -5,15 +5,7 @@
 <%= render partial: 'shared/notice', locals: { notice: notice } %>
 <% if !@rests.nil? %>
   <% @rests.each do |r| %>
-    <%= image_tag(src = r.image_url, size: "200") %>
-    <%= r.name %>
-    <%= r.cuisine %>
-    <%= r.review_count %>
-    <%= r.rating %>
-    <%= r.price %>
-    <%= r.city %>
-    <%= r.zip %>
-    <%= link_to r.name, r.url %>
+  <%= render partial: 'shared/show', locals: { r: r } %>
     <%= form_for(r, :action => 'create') do |f| %>
       <%= f.hidden_field :name, value: r.name %>
       <%= f.hidden_field :cuisine, value: r.cuisine %>
@@ -29,5 +21,10 @@
     <% end %><br><br>
   <% end %>
 <% else %>
-<h2>Popular user restaurants</h2>
+  <h2>Popular user restaurants</h2>
+  <% if !@restaurants.nil? %>
+    <% @restaurants.each do |r| %>
+      <%= render partial: 'shared/show', locals: { r: r } %>
+    <% end %>
+  <% end %>
 <% end %>

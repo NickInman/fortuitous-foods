@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
 
   def index
-    @restaraunts = Restaurant.all
+    @restaurants = Restaurant.all
     # @favorites = Favorite.all
     # @favorites.map {|f| f.restaurant_id}
   end
