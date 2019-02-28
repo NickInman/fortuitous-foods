@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   post '/index', to:'restaurants#search'
   resources :home, only: [:index]
   resources :sessions, only: [:create]
-  resources :users
+  resources :users do
+      resources :favorites
+  end
   resources :restaurants
-  resources :favorites
 end

@@ -1,0 +1,8 @@
+<%= render partial: 'shared/notice', locals: { notice: notice } %>
+<% @favs.each do |r| %>
+<%= render partial: 'shared/show', locals: { r: r } %>
+  <%= form_tag user_favorite_path(session[:user_id], r.id), method: "delete" do %>
+  <%= submit_tag "Delete #{r.name}" %>
+  <% end %>
+<% end %>
+<%= link_to "Back to Account", user_path(@user) %>

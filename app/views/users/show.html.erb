@@ -5,3 +5,4 @@
 <p><%= @user.username %></p>
 
 <%= link_to "User Home", users_path %>
+<%= link_to "Favorites", user_favorites_path(@user.id) %>

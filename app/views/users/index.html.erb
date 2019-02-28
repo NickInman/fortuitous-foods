@@ -5,9 +5,3 @@
 <%= link_to "Log Out", logout_path %>
 <p>Will show user info, possibly restaurants, suggestions, stats?</p>
 <%= render partial: 'shared/notice', locals: { notice: notice } %>
-<% @favs.each do |r| %>
-<%= render partial: 'shared/show', locals: { r: r } %>
-  <%= form_tag favorite_path(r.id), method: "delete" do %>
-  <%= submit_tag "Delete #{r.name}" %>
-<% end %>
-<% end %>

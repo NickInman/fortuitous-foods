@@ -1,6 +1,10 @@
 class FavoritesController < ApplicationController
 
   def index
+    @user = User.find(session[:user_id])
+    @favs = @user.favorites.map do |f|
+      Restaurant.find_by(id: f.restaurant_id)
+    end
   end
 
   def show
