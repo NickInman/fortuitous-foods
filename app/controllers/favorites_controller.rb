@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+    before_action :find_user, only: [:index, :edit, :update]
 
   def index
     @user = User.find(session[:user_id])
@@ -29,6 +30,12 @@ class FavoritesController < ApplicationController
         redirect_to users_path, notice: "Deleted #{rest_name} from your favorites."
       end
     end
+  end
+
+  private
+
+  def find_user
+    @user = User.find_by(id: session[:user_id])
   end
 
 end
