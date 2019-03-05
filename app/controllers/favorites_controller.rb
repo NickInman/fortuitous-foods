@@ -10,6 +10,13 @@ class FavoritesController < ApplicationController
   def show
   end
 
+  def update
+    @fav = Favorite.find_by(id: params['id'])
+    @fav.fav_dish = params['fav_dish']
+    @fav.save
+    redirect_to user_favorites_path(params['user_id'])
+  end
+
   def destroy
     @user = User.find_by(id: session[:user_id])
     @user.favorites.each do |f|

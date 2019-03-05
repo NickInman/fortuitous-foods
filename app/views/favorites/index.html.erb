@@ -1,8 +1,18 @@
+<%= link_to "User Home", users_path %><br><br>
+
 <%= render partial: 'shared/notice', locals: { notice: notice } %>
 <% @favs.each do |r| %>
 <%= render partial: 'shared/show', locals: { r: r } %>
+  <% if r.favorites.find_by(id: r.id).fav_dish == nil %>
+    <%= form_tag user_favorite_path(session[:user_id], r.id), method: "patch" do %>
+      <%= label_tag "Favorite Dish"%>
+      <%= text_field_tag :fav_dish %>
+      <%= submit_tag "Save" %>
+    <% end  %>
+  <% else %>
+      Favorite Dish: <%= r.favorites.find_by(id: r.id).fav_dish %> <br>
+  <% end %>
   <%= form_tag user_favorite_path(session[:user_id], r.id), method: "delete" do %>
-  <%= submit_tag "Delete #{r.name}" %>
+    <%= submit_tag "Delete #{r.name}" %> <br><br>
   <% end %>
 <% end %>
-<%= link_to "User Home", users_path %>

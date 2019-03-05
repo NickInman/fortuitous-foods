@@ -1,7 +1,7 @@
-<h1>Restaurants Index</h1>
-<p>Popular near you?</p>
 <%= link_to "Search", new_restaurant_path %><br>
 <%= link_to "User Home", users_path %><br><br>
+<h1>Restaurants Index</h1>
+<p>Popular near you?</p>
 <%= render partial: 'shared/notice', locals: { notice: notice } %>
 <% if !@rests.nil? %>
   <% @rests.each do |r| %>

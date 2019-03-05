@@ -1,6 +1,8 @@
+<%= link_to "Restaurants home", restaurants_path %>
 <h1>New Restaurant Page(search)</h1>
 <p>Need to check for valid data in Cuisine.</p>
 <p>Zip is optional, maybe autofill it from user info if its there?</p>
 <p>Maybe prompt for a zip before showing the results?</p>
+<p>Cuisine can also be names or items</p>
+<p>Zip can also be city/state</p>
 <%= render partial: 'new', locals: { restaurant: @restaurant } %>
-<%= link_to "Restaurants home", restaurants_path %>

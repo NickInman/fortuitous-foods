@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2019_02_27_205109) do
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "restaurant_id"
+    t.string "fav_dish"
   end
 
   create_table "restaurants", force: :cascade do |t|
