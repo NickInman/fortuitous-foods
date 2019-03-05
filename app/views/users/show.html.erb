@@ -1,7 +1,7 @@
+<%= link_to "User Home", users_path %>
 <h1>User Show Page</h1>
 <p><%= @user.first_name + " " + @user.last_name %></p>
 <p><%= @user.email %></p>
 <p><%= @user.zip %></p>
 <p><%= @user.username %></p>
-
-<%= link_to "User Home", users_path %>
+<%= link_to "Edit User", edit_user_path(@user.id) %>

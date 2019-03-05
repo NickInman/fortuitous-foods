@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: [:new, :create]
   before_action :current_user, except: [:new, :create]
+  before_action :find_user, only: [:index, :edit, :update]
 
 
   def index
-    @user = User.find(session[:user_id])
     @favs = @user.favorites.map do |f|
       Restaurant.find_by(id: f.restaurant_id)
     end
@@ -21,7 +21,6 @@ class UsersController < ApplicationController
         warnings << "#{param[0].split('_').join(' ')} is required"
       end
     end
-
     @user = User.new(user_params)
     if !warnings.empty?
       redirect_to new_user_path, alert: warnings
@@ -34,16 +33,31 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @user.update_attributes(user_params)
+      session[:user_id] = @user.id
+      redirect_to user_path(@user.id)
+    else
+      binding.pry
+      redirect_to users_path, alert: "Update failed"
+    end
+  end
+
   def show
     if valid_user?
       @user = User.find(params[:id])
-
     else
       redirect_to user_path(session[:user_id])
     end
   end
 
   private
+  def find_user
+    @user = User.find_by(id: session[:user_id])
+  end
 
   def user_params
     params.require(:user).permit(:username, :email, :first_name, :last_name, :zip, :password, :password_confirmation)
