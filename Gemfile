@@ -20,6 +20,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+
 gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -27,6 +28,8 @@ gem 'dotenv-rails'
 gem 'thin'
 gem 'yelp', require: 'yelp'
 gem 'http'
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
