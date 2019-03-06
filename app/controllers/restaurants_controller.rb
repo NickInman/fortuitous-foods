@@ -8,6 +8,12 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new
   end
 
+  def show
+    @rests = YelpAdapter.search(restaurant_params[:cuisine], restaurant_params[:zip], 50).sample
+    flash.now[:notice] = 'Looks good!'
+    render :index
+  end
+
   def search
     @rests = YelpAdapter.search(restaurant_params[:cuisine],restaurant_params[:zip])
     flash.now[:notice] = 'Here are the first 5 results.'

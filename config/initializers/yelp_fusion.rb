@@ -8,5 +8,5 @@ API_KEY = ENV["YELP_API"]
 
 DEFAULT_BUSINESS_ID = "yelp-san-francisco"
 DEFAULT_TERM = "dinner"
-DEFAULT_LOCATION = "New York, NY"
+DEFAULT_LOCATION = "Seattle, Wa"
 SEARCH_LIMIT = 5

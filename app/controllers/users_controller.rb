@@ -3,8 +3,9 @@ class UsersController < ApplicationController
   before_action :current_user, except: [:new, :create]
   before_action :find_user, only: [:index, :edit, :update]
 
-
   def index
+    @cuisines = ['American', 'Asian Fusion', 'Bakeries', 'Barbecue', 'Brazilian', 'Breakfast & Brunch', 'Burgers', 'Cajun & Creole', 'Cantonese', 'Caribbean', 'Chicken Wings', 'Chinese', 'Cuban', 'Delis', 'Desserts', 'Diners', 'Donuts', 'Ethiopian', 'Falafel', 'French', 'Gluten-Free', 'Greek', 'Halal', 'Hawaiian', 'Hot Dogs', 'Indian', 'Italian', 'Japanese', 'Juice Bars & Smoothies', 'Korean', 'Kosher', 'Lebanese', 'Mediterranean', 'Mexican', 'Pakistani', 'Persian & Iranian', 'Peruvian', 'Pickup', 'Pizza', 'Ramen', 'Salads', 'Sandwiches', 'Seafood', 'Soup', 'Southern', 'Spanish', 'Steakhouses', 'Sushi', 'Szechuan', 'Tapas', 'Thai', 'Turkish', 'Vegan', 'Vegetarian', 'Vietnamese']
+    @restaurant = Restaurant.new
     @favs = @user.favorites.map do |f|
       Restaurant.find_by(id: f.restaurant_id)
     end
