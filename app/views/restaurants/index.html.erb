@@ -3,18 +3,13 @@
 <h1>Restaurants Index</h1>
 <%= render partial: 'shared/notice', locals: { notice: notice } %>
 <% if !@rests.nil? && @rests.kind_of?(Array) %>
-  <% @rests.each do |r| %>
-    <%= render partial: 'shared/show', locals: { r: r } %>
-    <%= render partial: 'save', locals: { rest: @rests } %>
-  <% end %>
-<% elsif !@rests.nil? && !@rests.kind_of?(Array) %>
-  <%= render partial: 'shared/show', locals: { r: @rests } %>
+  <%= render partial: 'shared/show', locals: { rests: @rests } %>
   <%= render partial: 'save', locals: { rest: @rests } %>
 <% else %>
   <h2>Popular user restaurants</h2>
   <% if !@restaurants.nil? %>
     <% @restaurants.each do |r| %>
-      <%= render partial: 'shared/show', locals: { r: r } %>
+      <%= render partial: 'shared/show', locals: { rests: r } %>
     <% end %>
   <% end %>
 <% end %>
