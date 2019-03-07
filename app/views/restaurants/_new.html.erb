@@ -1,8 +1,8 @@
 <%= form_for restaurant, :url => {:action => "search"} do |f|%>
  <%= f.label "Cuisine" %><br>
- <%= f.text_field :cuisine %><br>
+ <%= f.text_field :cuisine, required: true %><br>
  <%= f.label "Zip" %><br>
- <%= f.text_field :zip %>
+ <%= f.text_field :zip, required: true %>
  <%= f.submit 'Search' %>
 <% end %>
 <%# need to check for missing data above %>

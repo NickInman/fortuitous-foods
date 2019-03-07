@@ -1,13 +1,13 @@
-<%= form_for(rest, :action => 'create') do |f| %>
-    <%= f.hidden_field :name, value: rest.name %>
-    <%= f.hidden_field :cuisine, value: rest.cuisine %>
-    <%= f.hidden_field :review_count, value: rest.review_count %>
-    <%= f.hidden_field :rating, value: rest.rating %>
-    <%= f.hidden_field :price, value: rest.price %>
-    <%= f.hidden_field :city, value: rest.city %>
-    <%= f.hidden_field :zip, value: rest.zip %>
-    <%= f.hidden_field :url, value: rest.url %>
-    <%= f.hidden_field :image_url, value: rest.image_url %>
-    <%= f.hidden_field :rest_id, value: rest.rest_id %>
-    <%= f.submit 'Save to favorites' %>
-  <% end %>
+<%= form_for(rests, :action => 'create') do |f| %>
+  <%= f.hidden_field :name, value: rests.name %>
+  <%= f.hidden_field :cuisine, value: rests.cuisine %>
+  <%= f.hidden_field :review_count, value: rests.review_count %>
+  <%= f.hidden_field :rating, value: rests.rating %>
+  <%= f.hidden_field :price, value: rests.price %>
+  <%= f.hidden_field :city, value: rests.city %>
+  <%= f.hidden_field :zip, value: rests.zip %>
+  <%= f.hidden_field :url, value: rests.url %>
+  <%= f.hidden_field :image_url, value: rests.image_url %>
+  <%= f.hidden_field :rest_id, value: rests.rest_id %>
+  <%= f.submit 'Save to favorites' %>
+<% end %>

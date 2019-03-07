@@ -1,4 +1,4 @@
-<% if rests.nil? && rests.kind_of?(Array) %>
+<% if !rests.nil? && rests.kind_of?(Array) %>
   <% rests.each do |r| %>
     <%= image_tag(src = r.image_url, size: "200") %>
     <%= r.name %>
