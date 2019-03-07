@@ -1,8 +1,8 @@
-<%= link_to "User Home", users_path %>
-<h1>User Show Page</h1>
+<h2>Account Info</h2>
 <p>Name: <%= @user.first_name + " " + @user.last_name %></p>
 <p>Email: <%= @user.email %></p>
 <p>Zip: <%= @user.zip %></p>
 <p>Username: <%= @user.username %></p>
 <p>Favorite Dishes: <%= @user.favorites.fav_dishes.count %></p>
-<%= link_to "Edit User", edit_user_path(@user.id) %>
+<%= button_to "Edit User", edit_user_path(@user.id), :method => "get" %>
+<%= button_to "Back", users_path, :method => "get" %>

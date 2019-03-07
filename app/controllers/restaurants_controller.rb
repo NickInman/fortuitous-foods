@@ -1,4 +1,5 @@
-class RestaurantsController < ApplicationController
+ class RestaurantsController < ApplicationController
+  before_action :fortuitous_button, only: [:new]
 
   def index
     @restaurants = Restaurant.all
@@ -9,14 +10,16 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    @rests = YelpAdapter.search(restaurant_params[:cuisine], restaurant_params[:zip], 50).sample
-    flash.now[:notice] = 'Looks good!'
-    render :index
   end
 
   def search
-    @rests = YelpAdapter.search(restaurant_params[:cuisine],restaurant_params[:zip])
-    flash.now[:notice] = 'Here are the first 5 results.'
+    if params['randomize'] != '25'
+      @rests = YelpAdapter.search(restaurant_params[:cuisine],restaurant_params[:zip], params['randomize']).sample
+      flash.now[:notice] = "Here's a random restaurant from your area!"
+    else
+      @rests = YelpAdapter.search(restaurant_params[:cuisine],restaurant_params[:zip], params['randomize']).sample(5)
+      flash.now[:notice] = 'Here are the first 5 results!'
+    end
     render :index
   end
 
@@ -34,10 +37,10 @@ class RestaurantsController < ApplicationController
     end
     @user = User.find(session[:user_id])
     if !!@user.favorites.find_by(restaurant_id: @restaurant.id)
-      redirect_to users_path, notice: 'Restaurant already in favorites.'
+      redirect_to users_path, notice: 'Restaurant already in favorites!'
     else
       @user.favorites.create(restaurant_id: @restaurant.id)
-      redirect_to users_path, notice: 'Restaurant added to favorites.'
+      redirect_to users_path, notice: 'Restaurant added to favorites!'
     end
   end
 
@@ -45,5 +48,11 @@ class RestaurantsController < ApplicationController
 
   def restaurant_params
     params.require(:restaurant).permit(:name, :cuisine, :review_count, :rating, :price, :city, :url, :image_url, :zip, :rest_id)
+  end
+
+  def fortuitous_button
+    @cuisines = ['American', 'Asian Fusion', 'Bakeries', 'Barbecue', 'Brazilian', 'Breakfast & Brunch', 'Burgers', 'Cajun & Creole', 'Cantonese', 'Caribbean', 'Chicken Wings', 'Chinese', 'Cuban', 'Delis', 'Desserts', 'Diners', 'Donuts', 'Ethiopian', 'Falafel', 'French', 'Gluten-Free', 'Greek', 'Halal', 'Hawaiian', 'Hot Dogs', 'Indian', 'Italian', 'Japanese', 'Juice Bars & Smoothies', 'Korean', 'Kosher', 'Lebanese', 'Mediterranean', 'Mexican', 'Pakistani', 'Persian & Iranian', 'Peruvian', 'Pickup', 'Pizza', 'Ramen', 'Salads', 'Sandwiches', 'Seafood', 'Soup', 'Southern', 'Spanish', 'Steakhouses', 'Sushi', 'Szechuan', 'Tapas', 'Thai', 'Turkish', 'Vegan', 'Vegetarian', 'Vietnamese']
+    @restaurant = Restaurant.new
+    @user = User.find_by(id: session[:user_id])
   end
 end

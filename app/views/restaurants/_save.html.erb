@@ -1,4 +1,4 @@
-<%= form_for(rest, :action => 'create') do |f| %>
+<%= form_for rest do |f| %>
   <%= f.hidden_field :name, value: rest.name %>
   <%= f.hidden_field :cuisine, value: rest.cuisine %>
   <%= f.hidden_field :review_count, value: rest.review_count %>

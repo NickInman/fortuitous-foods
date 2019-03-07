@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback', to: 'sessions#create_fb'
   get '/index', to:'restaurants#search'
   post '/index', to:'restaurants#search'
-  post '/users', to:'restaurants#show', as: 'fortuitous'
   resources :home, only: [:index]
   resources :sessions, only: [:create]
   resources :users do

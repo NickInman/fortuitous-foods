@@ -1,12 +1,5 @@
-<%= link_to "Account Info", user_path(@user) %>
-<%= link_to "Favorites", user_favorites_path(@user.id) %>
-<h1>User Main Page</h1>
-<p>Hello <%= @user.first_name + " " + @user.last_name %></p>
-
-<%= form_for @restaurant, :url => fortuitous_path do |f|%>
-<%= f.hidden_field :cuisine, :value => @cuisines.sample %>
- <%= f.hidden_field :zip, :value => @user.zip %>
- <%= f.submit "I'm Feeling Fortuitous" %>
-<% end %>
+<h2>Hello <%= @user.first_name + " " + @user.last_name %>!</h2>
+<%= button_to "Account Info", user_path(@user), :method => "get" %>
+<%= button_to "Favorites", user_favorites_path(@user.id), :method => "get" %>
 
 <%= render partial: 'shared/notice', locals: { notice: notice } %>

@@ -1,5 +1,3 @@
-<%= link_to "User Home", users_path %><br><br>
-
 <%= render partial: 'shared/notice', locals: { notice: notice } %>
 <% @favs.each do |r| %>
 <%= render partial: 'shared/show', locals: { rests: r } %>
@@ -16,3 +14,4 @@
     <%= submit_tag "Delete #{r.name}" %> <br><br>
   <% end %>
 <% end %>
+<%= button_to "Back", users_path, :method => "get" %>

@@ -1,7 +1,10 @@
-<h1>New Restaurant Page(search)</h1>
-<p>Need to check for valid data in Cuisine.</p>
-<p>Zip is optional, maybe autofill it from user info if its there?</p>
-<p>Maybe prompt for a zip before showing the results?</p>
-<p>Cuisine can also be names or items</p>
-<p>Zip can also be city/state</p>
+<h2>Search for restaurants</h2>
 <%= render partial: 'new', locals: { restaurant: @restaurant } %>
+
+<strong><p>or!</p></strong>
+
+<%= form_for @restaurant, :url => {:action => "search"} do |f|%>
+<%= f.hidden_field :cuisine, :value => @cuisines.sample %>
+<%= f.hidden_field :zip, :value => @user.zip %>
+<%= f.button "I'm Feeling Fortuitous", name: "randomize", value: 50 %><br>
+<% end %>
