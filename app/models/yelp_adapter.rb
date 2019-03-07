@@ -1,6 +1,6 @@
 class YelpAdapter < ApplicationRecord
 
-  def self.search(term, location="seattle", limit="5")
+  def self.search(term="food", location="seattle", limit="5")
     url = "#{API_HOST}#{SEARCH_PATH}"
     params = {
       term: term,

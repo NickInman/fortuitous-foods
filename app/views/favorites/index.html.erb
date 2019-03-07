@@ -2,7 +2,7 @@
 
 <%= render partial: 'shared/notice', locals: { notice: notice } %>
 <% @favs.each do |r| %>
-<%= render partial: 'shared/show', locals: { r: r } %>
+<%= render partial: 'shared/show', locals: { rests: r } %>
   <% if r.favorites.find_by(id: r.id).fav_dish == nil %>
     <%= form_tag user_favorite_path(session[:user_id], r.id), method: "patch" do %>
       <%= label_tag "Favorite Dish"%>

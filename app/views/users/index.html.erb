@@ -1,7 +1,5 @@
-<%= link_to "Restaurants", restaurants_path %>
 <%= link_to "Account Info", user_path(@user) %>
 <%= link_to "Favorites", user_favorites_path(@user.id) %>
-<%= link_to "Log Out", logout_path %>
 <h1>User Main Page</h1>
 <p>Hello <%= @user.first_name + " " + @user.last_name %></p>
 
