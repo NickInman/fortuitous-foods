@@ -1,23 +1,9 @@
-<% if !rests.nil? && rests.kind_of?(Array) %>
-  <% rests.each do |r| %>
-    <%= image_tag(src = r.image_url, size: "200") %>
-    <%= r.name %>
-    <%= r.cuisine %>
-    <%= r.review_count %>
-    <%= r.rating %>
-    <%= r.price %>
-    <%= r.city %>
-    <%= r.zip %>
-    <%= link_to r.name, r.url %><br><br>
-  <% end %>
-<% else %>
-  <%= image_tag(src = rests.image_url, size: "200") %>
-  <%= rests.name %>
-  <%= rests.cuisine %>
-  <%= rests.review_count %>
-  <%= rests.rating %>
-  <%= rests.price %>
-  <%= rests.city %>
-  <%= rests.zip %>
-  <%= link_to rests.name, rests.url %><br><br>
-<% end %>
+<%= image_tag(src = rests.image_url, size: "200") %>
+<%= rests.name %>
+<%= rests.cuisine %>
+<%= rests.review_count %>
+<%= rests.rating %>
+<%= rests.price %>
+<%= rests.city %>
+<%= rests.zip %>
+<%= link_to rests.name, rests.url %><br><br>
