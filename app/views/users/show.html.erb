@@ -5,6 +5,6 @@
 <p>Zip: <%= @user.zip %></p>
 <p>Username: <%= @user.username %></p>
 <p>Favorite Dishes: <%= @user.favorites.fav_dishes.count %></p>
-<%= button_to "Edit User", edit_user_path(@user.id), :method => "get", class:"button" %><br>
+<%= button_to "Edit User", edit_user_path(@user.id), :method => "get", class:"button" %>
 <%= button_to "Back", users_path, :method => "get", class:"button" %>
 </div>

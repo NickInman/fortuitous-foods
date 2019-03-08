@@ -1,10 +1,9 @@
 <div class="p_rest rest_card">
 <h2>Search for restaurants</h2>
 <%= render partial: 'new', locals: { restaurant: @restaurant } %>
-<p>or find a random restaurant below!</p>
 <%= form_for @restaurant, :url => {:action => "search"} do |f|%>
-<%= f.hidden_field :cuisine, :value => @cuisines.sample %>
-<%= f.hidden_field :zip, :value => @user.zip %>
-<%= f.button "I'm Feeling Fortuitous", name: "randomize", value: 50, class:"button" %><br>
+  <%= f.hidden_field :cuisine, :value => @cuisines.sample %>
+  <%= f.hidden_field :zip, :value => @user.zip %>
+  <%= f.button "I'm Feeling Fortuitous", name: "randomize", value: 50, class:"button" %><br>
 <% end %>
 </div><br>
