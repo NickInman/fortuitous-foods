@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: [:new, :create]
   before_action :current_user, except: [:new, :create]
-  before_action :find_user, only: [:index, :edit, :update]
+  before_action :find_user, only: [:index, :edit, :update, :destroy]
 
   def index
     @favs = @user.favorites.map do |f|
@@ -52,6 +52,12 @@ class UsersController < ApplicationController
     else
       redirect_to user_path(session[:user_id])
     end
+  end
+
+  def destroy
+    @user.destroy
+    session.delete(:user_id)
+    redirect_to root_path, alert: "Account deleted"
   end
 
   private
