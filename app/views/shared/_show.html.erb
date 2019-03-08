@@ -1,9 +1,9 @@
-<%= image_tag(src = rests.image_url, size: "200") %>
-<%= rests.name %>
-<%= rests.cuisine %>
-<%= rests.review_count %>
-<%= rests.rating %>
-<%= rests.price %>
-<%= rests.city %>
-<%= rests.zip %>
-<%= link_to rests.name, rests.url %>
+<%= image_tag(src = rests.image_url, size: "400", style: "width:100%") %>
+<div class="container">
+  <h4><b><%= rests.name %></b></h4>
+  <p><%= rests.cuisine.capitalize %> cuisine</p>
+  <p><%= rests.review_count %>  reviews, <%= rests.rating %>/5 stars</p>
+  <p>Price: <%= rests.price %></p>
+  <p><%= rests.city %>, <%= rests.zip %></p>
+  <p><%= link_to rests.name, rests.url, target: :_blank %></p>
+</div>

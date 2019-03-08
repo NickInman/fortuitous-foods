@@ -1,4 +1,5 @@
  class RestaurantsController < ApplicationController
+  before_action :find_user, only: [:create, :new]
   before_action :fortuitous_button, only: [:new]
 
   def index
@@ -35,7 +36,6 @@
       r.image_url = restaurant_params['image_url']
       r.zip = restaurant_params['zip']
     end
-    @user = User.find(session[:user_id])
     if !!@user.favorites.find_by(restaurant_id: @restaurant.id)
       redirect_to users_path, notice: 'Restaurant already in favorites!'
     else
@@ -50,9 +50,12 @@
     params.require(:restaurant).permit(:name, :cuisine, :review_count, :rating, :price, :city, :url, :image_url, :zip, :rest_id)
   end
 
+  def find_user
+    @user = User.find_by(id: session[:user_id])
+  end
+
   def fortuitous_button
     @cuisines = ['American', 'Asian Fusion', 'Bakeries', 'Barbecue', 'Brazilian', 'Breakfast & Brunch', 'Burgers', 'Cajun & Creole', 'Cantonese', 'Caribbean', 'Chicken Wings', 'Chinese', 'Cuban', 'Delis', 'Desserts', 'Diners', 'Donuts', 'Ethiopian', 'Falafel', 'French', 'Gluten-Free', 'Greek', 'Halal', 'Hawaiian', 'Hot Dogs', 'Indian', 'Italian', 'Japanese', 'Juice Bars & Smoothies', 'Korean', 'Kosher', 'Lebanese', 'Mediterranean', 'Mexican', 'Pakistani', 'Persian & Iranian', 'Peruvian', 'Pickup', 'Pizza', 'Ramen', 'Salads', 'Sandwiches', 'Seafood', 'Soup', 'Southern', 'Spanish', 'Steakhouses', 'Sushi', 'Szechuan', 'Tapas', 'Thai', 'Turkish', 'Vegan', 'Vegetarian', 'Vietnamese']
     @restaurant = Restaurant.new
-    @user = User.find_by(id: session[:user_id])
   end
 end

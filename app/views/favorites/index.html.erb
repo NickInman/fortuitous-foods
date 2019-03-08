@@ -1,17 +1,19 @@
 <%= render partial: 'shared/notice', locals: { notice: notice } %>
 <% @favs.each do |r| %>
+<<div class="rest_card">
 <%= render partial: 'shared/show', locals: { rests: r } %>
   <% if r.favorites.find_by(id: r.id).fav_dish == nil %>
     <%= form_tag user_favorite_path(session[:user_id], r.id), method: "patch" do %>
-      <%= label_tag "Favorite Dish"%>
+      <p class="p_rest"><%= label_tag "Favorite Dish"%>
       <%= text_field_tag :fav_dish %>
-      <%= submit_tag "Save" %>
+      <%= submit_tag "Save" %></p>
     <% end  %>
   <% else %>
-      Favorite Dish: <%= r.favorites.find_by(id: r.id).fav_dish %> <br>
+      <p class="p_rest">Favorite Dish: <%= r.favorites.find_by(id: r.id).fav_dish %> </p>
   <% end %>
   <%= form_tag user_favorite_path(session[:user_id], r.id), method: "delete" do %>
-    <%= submit_tag "Delete #{r.name}" %> <br><br>
+    <div class="p_rest"><%= submit_tag "Delete #{r.name}" %></div>
   <% end %>
+  </div><br>
 <% end %>
-<%= button_to "Back", users_path, :method => "get" %>
+<div class="p_rest"><%= button_to "Back", users_path, :method => "get" %></div>

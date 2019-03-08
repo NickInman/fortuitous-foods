@@ -1,8 +1,7 @@
 <%= form_for restaurant, :url => {:action => "search"} do |f|%>
- <%= f.label "Cuisine" %><br>
+ <%= f.label "Cuisine/food type" %><br>
  <%= f.text_field :cuisine, required: true %><br>
- <%= f.label "Zip" %><br>
- <%= f.text_field :zip, required: true %>
-
+ <%= f.label "Zip or city, state" %><br>
+ <%= f.text_field :zip, required: true %><br><br>
  <%= f.button 'Search', name: "randomize", value: 25 %>
 <% end %>

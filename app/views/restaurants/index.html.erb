@@ -1,17 +1,23 @@
-<%= render partial: 'shared/notice', locals: { notice: notice } %>
+<h4 class="center"><%= render partial: 'shared/notice', locals: { notice: notice } %></h4>
 <% if !@rests.nil? && @rests.kind_of?(Array) %>
   <% @rests.each do |r| %>
+  <div class="rest_card">
     <%= render partial: 'shared/show', locals: { rests: r } %>
-    <%= render partial: 'save', locals: { rest: r } %><br><br>
+    <%= render partial: 'save', locals: { rest: r } %>
+  </div><br>
   <% end %>
 <% elsif !@rests.nil? && !@rests.kind_of?(Array) %>
+  <div class="rest_card">
   <%= render partial: 'shared/show', locals: { rests: @rests } %>
-  <%= render partial: 'save', locals: { rest: @rests } %><br><br>
+  <%= render partial: 'save', locals: { rest: @rests } %>
+  </div><br>
 <% else %>
   <% if !@restaurants.empty? %>
   <h2>Popular user restaurants</h2>
     <% @restaurants.each do |r| %>
-      <%= render partial: 'shared/show', locals: { rests: r } %><br><br>
+      <div class="rest_card">
+      <%= render partial: 'shared/show', locals: { rests: r } %>
+      </div><br>
     <% end %>
   <% else %>
     <p>There is nothing here!  Add some restaurants to your favorites!</p>
