@@ -1,4 +1,5 @@
 <% if !alert.nil? %>
+<div class="center_alert">
   <% if alert.kind_of?(Array) %>
     <% alert.each do |warn| %>
 	     <strong><%= warn %></strong><br>
@@ -6,4 +7,5 @@
     <% else %>
       <%= alert %>
     <% end  %>
+  </div>
 <% end %>

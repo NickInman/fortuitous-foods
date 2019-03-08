@@ -1,4 +1,5 @@
-<p><%= alert %></p>
+<div class="p_rest center">
+<%= render partial: 'shared/alert', locals: { alert: alert } %>
 <% if logged_in?%>
   <p>Welcome to Fortuitous Foods!</p>
   <p>You can search, save, or get a random restaurant from your area!</p>
@@ -7,3 +8,4 @@
   <%= button_to "Sign Up", new_user_path, :method => "get" %><br>
   <%= button_to "Log in with Facebook!", "/auth/facebook", :method => "get" %>
 <% end %>
+</div>

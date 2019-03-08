@@ -1,5 +1,7 @@
+<div class="p_rest">
 <h2>Hello <%= @user.first_name + " " + @user.last_name %>!</h2>
-<%= button_to "Account Info", user_path(@user), :method => "get" %>
+<%= button_to "Account Info", user_path(@user), :method => "get" %><br>
 <%= button_to "Favorites", user_favorites_path(@user.id), :method => "get" %>
 
 <%= render partial: 'shared/notice', locals: { notice: notice } %>
+</div>

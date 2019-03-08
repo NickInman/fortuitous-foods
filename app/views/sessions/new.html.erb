@@ -1,3 +1,4 @@
+<div class="p_rest">
 <%= render partial: 'shared/alert', locals: { alert: alert } %>
 <%= form_for @user, :url => url_for(:action => "create" ) do |f| %>
   <%= f.label 'Username:' %><br>
@@ -6,4 +7,5 @@
   <%= f.password_field :password %><br><br>
   <%= f.submit "Sign In" %>
 <% end %><br>
-<%= button_to "Back",root_path, :method => "get"  %>
+<%= button_to "Back",root_path, :method => "get" %>
+</div>

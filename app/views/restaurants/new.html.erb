@@ -1,3 +1,4 @@
+<div class="p_rest">
 <h2>Search for restaurants</h2>
 <%= render partial: 'new', locals: { restaurant: @restaurant } %>
 <p>or find a random restaurant below!</p>
@@ -6,3 +7,4 @@
 <%= f.hidden_field :zip, :value => @user.zip %>
 <%= f.button "I'm Feeling Fortuitous", name: "randomize", value: 50 %><br>
 <% end %>
+</div>
