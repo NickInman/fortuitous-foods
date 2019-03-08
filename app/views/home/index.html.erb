@@ -1,11 +1,11 @@
-<div class="p_rest center">
+<div class="p_rest center rest_card">
 <%= render partial: 'shared/alert', locals: { alert: alert } %>
 <% if logged_in?%>
   <p>Welcome to Fortuitous Foods!</p>
   <p>You can search, save, or get a random restaurant from your area!</p>
 <% else %>
-  <%= button_to "Login", login_path, :method => "get" %><br>
-  <%= button_to "Sign Up", new_user_path, :method => "get" %><br>
-  <%= button_to "Log in with Facebook!", "/auth/facebook", :method => "get" %>
+  <%= button_to "Login", login_path, :method => "get", class:"button" %><br>
+  <%= button_to "Sign Up", new_user_path, :method => "get", class:"button" %><br>
+  <%= button_to "Log in with Facebook!", "/auth/facebook", :method => "get", class:"button" %>
 <% end %>
-</div>
+</div><br>

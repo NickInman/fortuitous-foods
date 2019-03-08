@@ -6,13 +6,13 @@
     <%= form_tag user_favorite_path(session[:user_id], r.id), method: "patch" do %>
       <p class="p_rest"><%= label_tag "Favorite Dish"%>
       <%= text_field_tag :fav_dish %>
-      <%= submit_tag "Save" %></p>
+      <%= submit_tag "Save", class:"button" %></p>
     <% end  %>
   <% else %>
       <p class="p_rest">Favorite Dish: <%= r.favorites.find_by(id: r.id).fav_dish %> </p>
   <% end %>
   <%= form_tag user_favorite_path(session[:user_id], r.id), method: "delete" do %>
-    <div class="p_rest"><%= submit_tag "Delete #{r.name}" %></div>
+    <div class="p_rest"><%= submit_tag "Delete #{r.name}", class:"button" %></div>
   <% end %>
   </div><br>
 <% end %>

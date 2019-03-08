@@ -13,7 +13,7 @@
   </div><br>
 <% else %>
   <% if !@restaurants.empty? %>
-  <h2>Popular user restaurants</h2>
+  <h2 class="center">Popular user restaurants</h2>
     <% @restaurants.each do |r| %>
       <div class="rest_card">
       <%= render partial: 'shared/show', locals: { rests: r } %>

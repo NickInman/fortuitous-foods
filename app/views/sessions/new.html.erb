@@ -1,11 +1,11 @@
-<div class="p_rest">
+<div class="p_rest rest_card">
 <%= render partial: 'shared/alert', locals: { alert: alert } %>
 <%= form_for @user, :url => url_for(:action => "create" ) do |f| %>
   <%= f.label 'Username:' %><br>
-  <%= f.text_field :username %><br><br>
+  <%= f.text_field :username %><br>
   <%= f.label 'Password:' %><br>
-  <%= f.password_field :password %><br><br>
-  <%= f.submit "Sign In" %>
+  <%= f.password_field :password %><br>
+  <%= f.submit "Sign In", class:"button" %>
 <% end %><br>
-<%= button_to "Back",root_path, :method => "get" %>
-</div>
+<%= button_to "Back",root_path, :method => "get", class:"button" %>
+</div><br>

@@ -9,6 +9,6 @@
   <%= f.text_field :last_name, required: true %><br>
   <%= f.label :zip %><br>
   <%= f.number_field :zip, required: true %><br>
-  <%= f.submit "Save Changes"%>
+  <%= f.submit "Save Changes", class:"button"%>
 <% end %>
-<%= link_to 'Delete', user_path(user.id), method: "delete", data: { confirm: 'Are you sure?' } %>
+<%= button_to 'Delete', user_path(user.id), method: "delete", data: { confirm: 'Are you sure?' }, class:"button" %>
