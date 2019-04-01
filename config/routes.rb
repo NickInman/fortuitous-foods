@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create]
   resources :users do
       resources :favorites
+      post '/index', to:'favorites#search', as:'favorite_filter'
   end
   resources :restaurants
 end

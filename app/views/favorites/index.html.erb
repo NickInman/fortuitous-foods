@@ -1,4 +1,11 @@
 <%= render partial: 'shared/notice', locals: { notice: notice } %>
+<div class="center">
+  <p></p>
+<%= form_tag user_favorite_filter_path do %>
+  <%= text_field_tag :search %><br>
+  <%= submit_tag 'Search Favorites' %>
+<% end %>
+</div>
 <% @favs.each do |r| %>
 <div class="rest_card">
 <%= render partial: 'shared/show', locals: { rests: r } %>

@@ -1,11 +1,17 @@
 class FavoritesController < ApplicationController
-    before_action :find_user, only: [:index, :edit, :update]
+    before_action :find_user, only: [:index, :search, :edit, :update, :destroy]
 
   def index
-    @user = User.find(session[:user_id])
     @favs = @user.favorites.map do |f|
       Restaurant.find_by(id: f.restaurant_id)
     end
+  end
+
+  def search
+    @favs = @user.restaurants.select do |f|
+      f.name.downcase.include?(params['search'].downcase)
+    end
+    render :index
   end
 
   def show
@@ -19,7 +25,6 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by(id: session[:user_id])
     @user.favorites.each do |f|
       if @user.id == f.user_id && params['id'] == f.restaurant_id.to_s
         f.destroy

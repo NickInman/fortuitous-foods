@@ -14,22 +14,12 @@ class UsersController < ApplicationController
   end
 
   def create
-
-    warnings = []
-    user_params.each do |param|
-      if param[1].empty?
-        warnings << "#{param[0].split('_').join(' ')} is required"
-      end
-    end
     @user = User.new(user_params)
-    if !warnings.empty?
-      redirect_to new_user_path, alert: warnings
-    elsif @user.valid?
-      @user.save
+    if @user.save
       session[:user_id] = @user.id
       redirect_to users_path
     else
-      redirect_to new_user_path, alert: "Signup info invalid or incomplete."
+      redirect_to new_user_path, alert: @user.errors.full_messages
     end
   end
 
