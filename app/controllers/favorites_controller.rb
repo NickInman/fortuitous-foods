@@ -5,6 +5,7 @@ class FavoritesController < ApplicationController
     @favs = @user.favorites.map do |f|
       Restaurant.find_by(id: f.restaurant_id)
     end
+    render :json => @favs
   end
 
   def search

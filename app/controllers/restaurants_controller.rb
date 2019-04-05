@@ -4,6 +4,7 @@
 
   def index
     @restaurants = Restaurant.all
+    render :json => @restaurants
   end
 
   def new
@@ -11,6 +12,7 @@
   end
 
   def show
+    @restaurant = Restaurant.find_by(id: params[:id])
   end
 
   def search

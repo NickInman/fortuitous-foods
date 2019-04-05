@@ -1,4 +1,5 @@
 <h4 class="center"><%= render partial: 'shared/notice', locals: { notice: notice } %></h4>
+
 <% if !@rests.nil? && @rests.kind_of?(Array) %>
   <% @rests.each do |r| %>
   <div class="rest_card">
@@ -22,4 +23,5 @@
   <% else %>
     <p>There is nothing here!  Add some restaurants to your favorites!</p>
   <% end %>
+
 <% end %>

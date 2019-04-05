@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_action :find_user, only: [:index, :edit, :update, :destroy]
 
   def index
+    @user = User.find(session[:user_id])
     @favs = @user.favorites.map do |f|
       Restaurant.find_by(id: f.restaurant_id)
     end
@@ -39,6 +40,10 @@ class UsersController < ApplicationController
   def show
     if valid_user?
       @user = User.find(params[:id])
+      respond_to do |format|
+        format.html
+        format.json { render json: @user}
+      end
     else
       redirect_to user_path(session[:user_id])
     end
