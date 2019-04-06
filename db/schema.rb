@@ -10,12 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_27_205109) do
+ActiveRecord::Schema.define(version: 2019_04_06_184008) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "restaurant_id"
     t.string "fav_dish"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string "content"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
   create_table "restaurants", force: :cascade do |t|

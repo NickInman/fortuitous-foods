@@ -40,6 +40,9 @@ class UsersController < ApplicationController
   def show
     if valid_user?
       @user = User.find(params[:id])
+      @note = @user.notes.build
+      @notes = @user.notes.all
+
       respond_to do |format|
         format.html
         format.json { render json: @user}

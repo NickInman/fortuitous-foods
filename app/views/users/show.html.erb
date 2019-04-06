@@ -7,4 +7,14 @@
 <p>Favorite Dishes: <%= @user.favorites.fav_dishes.count %></p>
 <%= button_to "Edit User", edit_user_path(@user.id), :method => "get", class:"button" %>
 <%= button_to "Back", users_path, :method => "get", class:"button" %>
+
+<p>Notes</p>
+<div class="notes-content">
+<% @notes.each do |note| %>
+    <strong><p><%= note.user.first_name%> <%=note.user.last_name%></p></strong>
+    <p><%= note.content %></p>
+<% end %>
+</div>
+
+<%= render partial: 'notes/form', locals: {note: @note} %>
 </div>

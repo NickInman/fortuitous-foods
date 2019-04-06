@@ -14,4 +14,5 @@ Rails.application.routes.draw do
       post '/index', to:'favorites#search', as:'favorite_filter'
   end
   resources :restaurants
+  resources :notes
 end

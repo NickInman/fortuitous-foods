@@ -10,11 +10,6 @@
     end
   end
 
-  def data
-    @restaurant = Restaurant.find_by(id: params[:id])
-    render json: @restaurants
-  end
-
   def new
     @restaurant = Restaurant.new
   end

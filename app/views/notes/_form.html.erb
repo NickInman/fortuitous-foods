@@ -1,0 +1,5 @@
+<%= form_for(@note) do |f| %>
+  <%= f.text_area :content %><br>
+  <%= f.hidden_field(:user_id, :value => note.user_id) %>
+  <%= f.submit "Add Note", class:"button", data: { disable_with: false } %>
+<% end %>

@@ -1,24 +1,5 @@
-# README
+# Restaurant Finder
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Fortuitous Foods is a restaurant locater which utilizes the Yelp API and finds restaurants in your desired area.  Users can save favorites, add notes, and see other users favorited restaurants.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Ruby version 2.4.1
