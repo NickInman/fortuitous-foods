@@ -22,7 +22,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-item nav-link" href="<%= users_path %>">Account</a>
-        <a class="nav-item nav-link" href="<%= restaurants_path %>">Restaurants</a>
+        <a class="nav-item nav-link" href="<%= restaurant_path(Restaurant.first.id) %>">Restaurants</a>
 
         <a class="nav-item nav-link" href="<%= new_restaurant_path %>">Search</a>
         <a class="nav-item nav-link " href="<%= logout_path %>">Logout</a>

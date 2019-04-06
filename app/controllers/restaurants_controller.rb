@@ -10,12 +10,21 @@
     end
   end
 
+  def data
+    @restaurant = Restaurant.find_by(id: params[:id])
+    render json: @restaurants
+  end
+
   def new
     @restaurant = Restaurant.new
   end
 
   def show
     @restaurant = Restaurant.find_by(id: params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @restaurant}
+    end
   end
 
   def search

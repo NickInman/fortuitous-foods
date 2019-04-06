@@ -1,0 +1,10 @@
+<div class="rest_card center">
+  <h1 class="restaurantName"><%= @restaurant.name %></h1>
+  <p>Cuisine: <span class="restaurantCuisine"><%= @restaurant.cuisine %></span></p>
+  <p>Reviews: <span class="restaurantReviewCount"> <%= @restaurant.review_count %></span></p>
+  <p>Rating: <span class="restaurantRating"> <%= @restaurant.rating %></span>/5</p>
+  <p>Price: <span class="restaurantPrice"> <%= @restaurant.price %></span></p>
+  <p>City/Zip: <span class="restaurantCity"><%= @restaurant.city %></span>, <span class="restaurantZip"><%= @restaurant.zip %></span></p>
+  <p><a class="restaurantUrl" href=<%=@restaurant.url%>> <%=@restaurant.url %></a></p>
+  <a href="#" class="js-next button" data-id="<%=@restaurant.id%>">Next Restaurant</a>
+</div>
