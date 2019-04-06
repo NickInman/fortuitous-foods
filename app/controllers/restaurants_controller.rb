@@ -4,8 +4,10 @@
 
   def index
     @restaurants = Restaurant.all
-    render :json => @restaurants
-
+    respond_to do |format|
+      format.html
+      format.json { render json: @restaurants}
+    end
   end
 
   def new
@@ -45,6 +47,11 @@
       @user.favorites.create(restaurant_id: @restaurant.id)
       redirect_to users_path, notice: 'Restaurant added to favorites!'
     end
+  end
+
+  def show_popular
+    @restaurants = Restaurant.all
+    render :json => @restaurants
   end
 
   private

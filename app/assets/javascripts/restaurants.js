@@ -10,8 +10,7 @@ $(function(){
         "<p>" + restaurant.review_count + " reviews, "+ restaurant.rating + "/5 stars</p>" +
         "<p>Price: " + restaurant.price + "</p>" +
         "<p>" + restaurant.city + ", " + restaurant.zip + "</p>" +
-        "<p>" + (restaurant.name.link(restaurant.url)) + "</p>" +
-        "<a href='#' class='js-next' data-id="+ restaurant.id + ">Next...</a>")
+        "<p>" + (restaurant.name.link(restaurant.url)) + "</p>")
       })
     })
   })

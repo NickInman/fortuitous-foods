@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/logout', to:'sessions#destroy' #Logout
   get '/auth/facebook/callback', to: 'sessions#create_fb'
   get '/index', to:'restaurants#search'
+  get '/show_popular', to:'restaurants#show_popular'
   post '/index', to:'restaurants#search'
   resources :home, only: [:index]
   resources :sessions, only: [:create]
