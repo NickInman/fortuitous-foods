@@ -1,8 +1,10 @@
-<div class="p_rest">
+<div class="p_rest rest_card">
 <h2>Hello <%= @user.first_name + " " + @user.last_name %>!</h2>
 <%= button_to "Account Info", user_path(@user), method:"get", class:"button" %>
 <a class="favorites button" href="<%= user_favorites_path(@user) %>">Show Favorites</a>
+<br>
 <%= render partial: 'shared/notice', locals: { notice: notice } %>
 </div>
-<div class="display_favorites p_rest">
+
+<div class="display_favorites p_rest center">
 </div>

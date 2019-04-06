@@ -1,5 +1,4 @@
 <h4 class="center"><%= render partial: 'shared/notice', locals: { notice: notice } %></h4>
-
 <% if !@rests.nil? && @rests.kind_of?(Array) %>
   <% @rests.each do |r| %>
   <div class="rest_card">

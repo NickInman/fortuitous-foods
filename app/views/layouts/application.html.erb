@@ -22,7 +22,6 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-item nav-link" href="<%= users_path %>">Account</a>
-        <a class="nav-item nav-link restaurants" href="<%= restaurants_path %>">Restaurants</a>
         <a class="nav-item nav-link" href="<%= new_restaurant_path %>">Search</a>
         <a class="nav-item nav-link " href="<%= logout_path %>">Logout</a>
       </div>
@@ -31,9 +30,6 @@
   </nav>
   <body>
       <div class="card">
-        <div class="display_restaurants">
-
-        </div>
         <%= yield %>
       </div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
