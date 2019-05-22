@@ -11,7 +11,6 @@
   end
 
   def new
-    @restaurant = Restaurant.new
   end
 
   def show
